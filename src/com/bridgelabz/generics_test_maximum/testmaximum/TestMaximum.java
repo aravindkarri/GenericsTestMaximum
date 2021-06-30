@@ -16,7 +16,8 @@ public class TestMaximum <T extends Comparable<T>>
 	{
 		return TestMaximum.testMax(x, y, z);
 	}
-	public static void main(String[] args) {
+	public static void main(String[] args)
+	{
 		
 		Integer number1 = 2;
 		Integer number2 = 3;
@@ -30,16 +31,17 @@ public class TestMaximum <T extends Comparable<T>>
 		String name2 = "Peach";
 		String name3 = "Banana";
 		
-		TestMaximum<Integer> printMaxInteger = new TestMaximum<>(number1,number2,number3);
+		TestMaximum<Integer> printMaxInteger = new TestMaximum<Integer>(number1,number2,number3);
 		printMaxInteger.maximum();
-		TestMaximum<Float> printMaxFloat = new TestMaximum<>(num1,num2,num3);
+		TestMaximum<Float> printMaxFloat = new TestMaximum<Float>(num1,num2,num3);
 		printMaxFloat.maximum();
-		TestMaximum<String> printMaxString = new TestMaximum<>(name1,name2,name3);
+		TestMaximum<String> printMaxString = new TestMaximum<String>(name1,name2,name3);
 		printMaxString.maximum();
 
 	}
 	
-	public static <T extends Comparable<T>> T testMax(T x,T y ,T z) {
+	public static <T extends Comparable<T>> T testMax(T x,T y ,T z)
+	{
 		
 		T maximum= x;
 		if(y.compareTo(maximum) > 0 )
