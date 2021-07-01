@@ -1,62 +1,47 @@
 package com.bridgelabz.generics_test_maximum.testmaximum;
 
-public class TestMaximum <T extends Comparable<T>>
+public class TestMaximum<T extends Comparable<T>>
 {
-	T x,y,z;
 
-	public TestMaximum(T x, T y, T z) 
+	private T[] myArray;
+	public TestMaximum(T[] myArray)
 	{
 		super();
-		this.x = x;
-		this.y = y;
-		this.z = z;
+		this.myArray=myArray;
 	}
-	
-	public T maximum()
+	public static void main(String[] args) 
 	{
-		return TestMaximum.testMax(x, y, z);
+		Integer[] intArray = {1,2,3,4,5};
+		Double[] doubleArray = {1.1,2.2,3.3,4.4};
+		Character[] charArray = {'H','E','L','L','O'};
+		
+		TestMaximum<Integer>printIntegerArray = new TestMaximum<>(intArray);
+		printIntegerArray.sortElements();
+		TestMaximum<Double> printDoubleArray = new TestMaximum<>(doubleArray);
+		printDoubleArray.sortElements();
+		TestMaximum<Character> printCharacterArray = new TestMaximum<>(charArray);
+		printCharacterArray.sortElements();
+		
 	}
-	public static void main(String[] args)
-	{
+	private T[] sortElements() {
+		int n = myArray.length;
+		for(int i = 0;i<n;i++)
+		{
+			for(int j=0;j<n-i-1;j++)
+			{
+				if(myArray[j].compareTo(myArray[j+1])>0)
+				{
+					swapElements(j,myArray);
+				}
+			}
+		}
+		return myArray;
+	}
+	private void swapElements(int j, T[] myArray2) {
+		T temp = myArray[j];
+		myArray[j] = myArray[j+1];
+		myArray[j+1] = temp;
 		
-		Integer number1 = 2;
-		Integer number2 = 3;
-		Integer number3 = 5;
-		
-		Float num1 = 2.5f;
-		Float num2 = 3.1f;
-		Float num3 = 1.19f;
-		
-		String name1 = "Apple";
-		String name2 = "Peach";
-		String name3 = "Banana";
-		
-		TestMaximum<Integer> printMaxInteger = new TestMaximum<Integer>(number1,number2,number3);
-		printMaxInteger.maximum();
-		TestMaximum<Float> printMaxFloat = new TestMaximum<Float>(num1,num2,num3);
-		printMaxFloat.maximum();
-		TestMaximum<String> printMaxString = new TestMaximum<String>(name1,name2,name3);
-		printMaxString.maximum();
+	}
 
-	}
-	
-	public static <T extends Comparable<T>> T testMax(T x,T y ,T z)
-	{
-		
-		T maximum= x;
-		if(y.compareTo(maximum) > 0 )
-		{
-			maximum = y;
-		}
-		if(z.compareTo(maximum) > 0 )
-		{
-			maximum = z;
-		}
-		printMax(x,y,z,maximum);
-		return maximum;
-	}
-	public static <T> void printMax(T x,T y,T z,T maximum)
-	{
-		System.out.printf("Max of %s,%s and %s is %s \n ",x,y,z,maximum);
-	}
 }
