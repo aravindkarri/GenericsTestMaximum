@@ -15,13 +15,13 @@ public class TestMaximum<T extends Comparable<T>>
 		Double[] doubleArray = {1.1,2.2,3.3,4.4};
 		Character[] charArray = {'H','E','L','L','O'};
 		
-		TestMaximum<Integer>printIntegerArray = new TestMaximum<>(intArray);
+		TestMaximum<Integer>printIntegerArray = new TestMaximum<Integer>(intArray);
 		Integer[] sortedArray1 = printIntegerArray.sortElements();
 		TestMaximum.toPrint(sortedArray1);
-		TestMaximum<Double> printDoubleArray = new TestMaximum<>(doubleArray);
+		TestMaximum<Double> printDoubleArray = new TestMaximum<Double>(doubleArray);
 		Double[] sortedArray2 = printDoubleArray.sortElements();
 		TestMaximum.toPrint(sortedArray2);
-		TestMaximum<Character> printCharacterArray = new TestMaximum<>(charArray);
+		TestMaximum<Character> printCharacterArray = new TestMaximum<Character>(charArray);
 		Character[] sortedArray3 = printCharacterArray.sortElements();
 		TestMaximum.toPrint(sortedArray3);
 		
