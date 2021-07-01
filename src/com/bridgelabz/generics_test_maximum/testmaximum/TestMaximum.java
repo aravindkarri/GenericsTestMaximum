@@ -1,6 +1,5 @@
 package com.bridgelabz.generics_test_maximum.testmaximum;
 
-
 public class TestMaximum<T extends Comparable<T>>
 {
 
@@ -17,11 +16,14 @@ public class TestMaximum<T extends Comparable<T>>
 		Character[] charArray = {'H','E','L','L','O'};
 		
 		TestMaximum<Integer>printIntegerArray = new TestMaximum<>(intArray);
-		printIntegerArray.sortElements();
+		Integer[] sortedArray1 = printIntegerArray.sortElements();
+		TestMaximum.toPrint(sortedArray1);
 		TestMaximum<Double> printDoubleArray = new TestMaximum<>(doubleArray);
-		printDoubleArray.sortElements();
+		Double[] sortedArray2 = printDoubleArray.sortElements();
+		TestMaximum.toPrint(sortedArray2);
 		TestMaximum<Character> printCharacterArray = new TestMaximum<>(charArray);
-		printCharacterArray.sortElements();
+		Character[] sortedArray3 = printCharacterArray.sortElements();
+		TestMaximum.toPrint(sortedArray3);
 		
 	}
 	private T[] sortElements() {
@@ -44,5 +46,13 @@ public class TestMaximum<T extends Comparable<T>>
 		myArray[j+1] = temp;
 		
 	}
-
+	public static <E> void toPrint(E[] inputArray)
+	{
+		for(E element: inputArray)
+		{
+			System.out.printf("%s",element);
+		}
+		System.out.println();
+	}
 }
+
